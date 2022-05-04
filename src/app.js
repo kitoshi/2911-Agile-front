@@ -16,13 +16,17 @@ function displayAllMovies(listOfMovies){
         const ratingTag = document.createElement('p');
         const movieDiv = document.createElement('div');
         const imgTag = document.createElement('img');
-        const button = document.createElement('button');
+        const buttonUp = document.createElement('button');
+        const buttonDown = document.createElement('button');
+        buttonUp.className = 'Up'
+        buttonDown.className = 'Down'
 
-        movieDiv.id = idTracker
+        movieDiv.id = numberOfMovies._id
 
         idTracker = idTracker + 1
         for (let object in numberOfMovies) {
-            movieDiv.append(button)
+            movieDiv.append(buttonUp)
+            movieDiv.append(buttonDown)
             if ( object === 'title' ) {
                 noSpecialCharacters = numberOfMovies.title.replace(/[^a-zA-Z0-9 ]/g, '')
                 titleTag.textContent = numberOfMovies.title
@@ -47,24 +51,31 @@ function displayAllMovies(listOfMovies){
 }
 
 allMovies.addEventListener('click', (evt) => {
-    console.log(evt.target)
-    let button = document.createElement('button')
-    if (evt.target == button){
-        console.log(evt.target.parentElement)
+    console.log(evt.target.nodeName)
+    if ( evt.target.nodeName === 'BUTTON' ){
+        getElementById
+        if (evt.target ===)
+        const movieID = evt.target.parentElement.id
+        // fetchCrud(movieID)
     }
  
 
 
     
 })
-// async function fetchCrud(listOfMovies) {
-//     let movieID = 'https://agile-2199.uw.r.appspot.com/api' + 
-//     const response = await fetch(movieID, {
-//         method: 'PUT'
+async function fetchUpVote(movieID) {
+    let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
+    const response = await fetch(URL, {
+        method: 'PUT'
+    })
+}
 
-//     })
-// }
-
+async function fetchDownVote(movieID) {
+    let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/downvotes'
+    const response = await fetch(URL, {
+        method: 'PUT'
+    })
+}
 
 // function incrementVote() {
 //     database?.updateOne()
