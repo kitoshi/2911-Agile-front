@@ -10,7 +10,7 @@ const allMovies = document.getElementById("display_movies")
   
 function displayAllMovies(listOfMovies){
     for (let numberOfMovies of listOfMovies) {
-        const titleTag = document.createElement('p');
+        const titleTag = document.createElement('h1');
         const objectTag = document.createElement('p');
         const ratingTag = document.createElement('p');
         const movieDiv = document.createElement('div');
@@ -19,8 +19,8 @@ function displayAllMovies(listOfMovies){
         const buttonDown = document.createElement('button');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
-        buttonUp.textContent = 'Up'
-        buttonDown.textContent = 'Down'
+//        buttonUp.textContent = 'Up'
+//        buttonDown.textContent = 'Down'
 
         movieDiv.id = numberOfMovies._id
 

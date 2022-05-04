@@ -1,12 +1,18 @@
 body {
     margin: 0%;
     padding: 0%;
-    background: linear-gradient(#ff6961,red);
+    background: radial-gradient(circle,white,red);
     height: 100vh;
+}
+h3{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 h1{
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
+
 
 .container{
     display: flex;
@@ -24,16 +30,28 @@ div#0 {
 p {
     width: 100%;
     justify-content: center;
+    font-family: 'Lato', serif;
 }
 #display_movies {
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-#display_movies div{
-  background-color: #ffdeda;
-}
 
+#display_movies div {
+  transition: box-shadow .2s;
+  width: 300px;
+  height: 500px;
+  margin: 50px;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  
+}
+#display_movies div:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2); 
+}
 #logo{
     max-height: 300px;
     max-width: 774.3px;
@@ -141,4 +159,30 @@ img {
   max-height:300px;
   width: auto;
   height: auto;
+}
+
+.Up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  background-color: gray;
+}
+
+.Up {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.Down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background-color: gray;
+}
+
+.Down {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
 }
