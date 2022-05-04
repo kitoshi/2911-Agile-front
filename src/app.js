@@ -6,7 +6,6 @@ async function makeFetchtoBackEndToGetData() {
 
 
 const allMovies = document.getElementById("display_movies")
-let idTracker = 0
 
   
 function displayAllMovies(listOfMovies){
@@ -20,10 +19,11 @@ function displayAllMovies(listOfMovies){
         const buttonDown = document.createElement('button');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
+        buttonUp.textContent = 'Up'
+        buttonDown.textContent = 'Down'
 
         movieDiv.id = numberOfMovies._id
 
-        idTracker = idTracker + 1
         for (let object in numberOfMovies) {
             movieDiv.append(buttonUp)
             movieDiv.append(buttonDown)
@@ -55,31 +55,38 @@ allMovies.addEventListener('click', (evt) => {
     if ( evt.target.className === 'Up' ){
         const movieID = evt.target.parentElement.id
          fetchUpVote(movieID)
+    }
     if ( evt.target.className === 'Down' ) {
         const movieID = evt.target.parentElement.id
+        console.log('hello')
         fetchDownVote(movieID)
     }
     }
-})
+)
 
 
 async function fetchUpVote(movieID) {
     let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
+    const bodyStuff = 'ObjectId("' + movieID + '")'
     const response = await fetch(URL, {
-        method: 'PUT'
+        method: 'PUT',
+        body: JSON.stringify({ _id: movieID }),
+        headers: { 'Content-Type': 'application/json' }
+
     })
+    return response
 }
 
 async function fetchDownVote(movieID) {
     let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/downvotes'
     const response = await fetch(URL, {
-        method: 'PUT'
+        method: 'PUT',
+        body: JSON.stringify({ _id: movieID }),
+        headers: { 'Content-Type': 'application/json' }
     })
+    return response
 }
 
-// function incrementVote() {
-//     database?.updateOne()
-// }
 
 
 
