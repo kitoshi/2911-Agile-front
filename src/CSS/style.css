@@ -130,3 +130,8 @@ footer {
 .mainbutton:hover {
   outline: 0;
 }
+
+img {
+  height: 300px;
+  width: 150px
+}
