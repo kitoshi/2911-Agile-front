@@ -52,17 +52,17 @@ function displayAllMovies(listOfMovies){
 
 allMovies.addEventListener('click', (evt) => {
     console.log(evt.target.nodeName)
-    if ( evt.target.nodeName === 'BUTTON' ){
-        getElementById
-        if (evt.target ===)
+    if ( evt.target.className === 'Up' ){
         const movieID = evt.target.parentElement.id
-        // fetchCrud(movieID)
+         fetchUpVote(movieID)
+    if ( evt.target.className === 'Down' ) {
+        const movieID = evt.target.parentElement.id
+        fetchDownVote(movieID)
     }
- 
-
-
-    
+    }
 })
+
+
 async function fetchUpVote(movieID) {
     let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
     const response = await fetch(URL, {
