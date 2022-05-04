@@ -19,8 +19,8 @@ function displayAllMovies(listOfMovies){
         const buttonDown = document.createElement('button');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
-//        buttonUp.textContent = 'Up'
-//        buttonDown.textContent = 'Down'
+        buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
+        buttonDown.innerHTML = `<i class="fa fa-thumbs-down">`
 
         movieDiv.id = numberOfMovies._id
 

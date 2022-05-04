@@ -161,28 +161,3 @@ img {
   height: auto;
 }
 
-.Up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  background-color: gray;
-}
-
-.Up {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-}
-
-.Down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  background-color: gray;
-}
-
-.Down {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-}
