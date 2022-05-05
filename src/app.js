@@ -18,6 +18,7 @@ function displayAllMovies(listOfMovies){
         const buttonUp = document.createElement('button');
         const buttonDown = document.createElement('button');
         const synopsisTag = document.createElement('p');
+        const voteTag = document.createElement('p')
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
         buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
@@ -52,6 +53,11 @@ function displayAllMovies(listOfMovies){
                 synopsisTag.className = 'Synopsis'
                 movieDiv.append(synopsisTag)
             }
+            if ( object === 'votes' ) {
+                voteTag.textContent = numberOfMovies.votes
+                voteTag.className = 'Votes'
+                movieDiv.append(voteTag)
+            }
 
         }
         allMovies.append(movieDiv)
@@ -60,7 +66,6 @@ function displayAllMovies(listOfMovies){
 }
 
 allMovies.addEventListener('click', (evt) => {
-    console.log(evt.target.nodeName)
     if ( evt.target.className === 'Up' ){
         const movieID = evt.target.parentElement.id
          fetchUpVote(movieID)
