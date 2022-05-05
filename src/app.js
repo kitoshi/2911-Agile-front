@@ -20,6 +20,7 @@ function displayAllMovies(listOfMovies){
         const synopsisTag = document.createElement('p');
         const voteTag = document.createElement('p');
         const divTagStyle = document.createElement('div');
+        const buttonDiv = document.createElement('div');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
         buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
@@ -29,8 +30,7 @@ function displayAllMovies(listOfMovies){
         movieDiv.id = numberOfMovies._id
 
         for (let object in numberOfMovies) {
-            movieDiv.append(buttonUp)
-            movieDiv.append(buttonDown)
+
             if ( object === 'title' ) {
                 noSpecialCharacters = numberOfMovies.title.replace(/[^a-zA-Z0-9 ]/g, '')
                 titleTag.textContent = numberOfMovies.title
@@ -41,30 +41,33 @@ function displayAllMovies(listOfMovies){
                 movieDiv.append(imgTag)
             }
             if ( object === 'year' )  {
-                objectTag.textContent = numberOfMovies.year
+                objectTag.textContent = 'Year: ' + numberOfMovies.year
                 objectTag.className = 'Year'
                 divTagStyle.append(objectTag)
                 // movieDiv.append(divTagStyle)
             }
             if ( object === 'rating' ) {
-                ratingTag.textContent = numberOfMovies.rating
+                ratingTag.textContent = 'Rating: ' + numberOfMovies.rating
                 ratingTag.className = 'Rating'
                 divTagStyle.append(ratingTag)
                 // movieDiv.append(divTagStyle)
             }
             if ( object === 'summary') {
-                synopsisTag.textContent = numberOfMovies.summary
+                synopsisTag.textContent = 'Summary: ' + numberOfMovies.summary
                 synopsisTag.className = 'Synopsis'
                 divTagStyle.append(synopsisTag)
             }
             if ( object === 'votes' ) {
-                voteTag.textContent = numberOfMovies.votes
+                voteTag.textContent = 'Votes: ' + numberOfMovies.votes
                 voteTag.className = 'Votes'
                 divTagStyle.append(voteTag)
             }
 
         }
         movieDiv.append(divTagStyle)
+        buttonDiv.append(buttonUp)
+        buttonDiv.append(buttonDown)
+        movieDiv.append(buttonDiv)
         
         allMovies.append(movieDiv)
         }
@@ -87,7 +90,6 @@ allMovies.addEventListener('click', (evt) => {
 
 async function fetchUpVote(movieID) {
     let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
-    const bodyStuff = 'ObjectId("' + movieID + '")'
     const response = await fetch(URL, {
         method: 'PUT',
         body: JSON.stringify({ _id: movieID }),

@@ -9,8 +9,11 @@ h3{
   font-family: 'Lato', sans-serif;
 }
 h1{
+  position: relative;
   text-align: center;
   font-family: 'Lato', sans-serif;
+  align-self: flex-start;
+  width: 500px;
 }
 
 
@@ -33,27 +36,38 @@ p {
     font-family: 'Lato', serif;
 }
 .Movies {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-.Movies {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-}
-.Movies div {
+  align-items: center;
+  /* flex-wrap: wrap; */
   transition: box-shadow .2s;
   width: 500px;
-  height: 500px;
+  /* height: 500px; */
   margin: 50px;
-  border-radius:10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  transition: box-shadow .2s;
+}
+.Movies div {
+  
+  padding: 5%;
+  /* height: 500px; */
+  margin: 50px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   background: #fff;
   float: left;
   
 }
-.Movies div:hover {
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Movies:hover {
   box-shadow: 0 0 15px rgba(33,33,33,.2); 
 }
 #logo{
