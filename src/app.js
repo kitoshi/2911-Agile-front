@@ -18,11 +18,13 @@ function displayAllMovies(listOfMovies){
         const buttonUp = document.createElement('button');
         const buttonDown = document.createElement('button');
         const synopsisTag = document.createElement('p');
-        const voteTag = document.createElement('p')
+        const voteTag = document.createElement('p');
+        const divTagStyle = document.createElement('div');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
         buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
         buttonDown.innerHTML = `<i class="fa fa-thumbs-down">`
+        movieDiv.className = 'Movies'
 
         movieDiv.id = numberOfMovies._id
 
@@ -41,25 +43,29 @@ function displayAllMovies(listOfMovies){
             if ( object === 'year' )  {
                 objectTag.textContent = numberOfMovies.year
                 objectTag.className = 'Year'
-                movieDiv.append(objectTag)
+                divTagStyle.append(objectTag)
+                // movieDiv.append(divTagStyle)
             }
             if ( object === 'rating' ) {
                 ratingTag.textContent = numberOfMovies.rating
                 ratingTag.className = 'Rating'
-                movieDiv.append(ratingTag)
+                divTagStyle.append(ratingTag)
+                // movieDiv.append(divTagStyle)
             }
             if ( object === 'summary') {
                 synopsisTag.textContent = numberOfMovies.summary
                 synopsisTag.className = 'Synopsis'
-                movieDiv.append(synopsisTag)
+                divTagStyle.append(synopsisTag)
             }
             if ( object === 'votes' ) {
                 voteTag.textContent = numberOfMovies.votes
                 voteTag.className = 'Votes'
-                movieDiv.append(voteTag)
+                divTagStyle.append(voteTag)
             }
 
         }
+        movieDiv.append(divTagStyle)
+        
         allMovies.append(movieDiv)
         }
     
