@@ -17,6 +17,7 @@ function displayAllMovies(listOfMovies){
         const imgTag = document.createElement('img');
         const buttonUp = document.createElement('button');
         const buttonDown = document.createElement('button');
+        const synopsisTag = document.createElement('p');
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
         buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
@@ -30,19 +31,27 @@ function displayAllMovies(listOfMovies){
             if ( object === 'title' ) {
                 noSpecialCharacters = numberOfMovies.title.replace(/[^a-zA-Z0-9 ]/g, '')
                 titleTag.textContent = numberOfMovies.title
+                titleTag.className = 'Titles'
                 imgTag.src = 'img/' + noSpecialCharacters + '.jpg'
+                imgTag.className = 'Images'
                 movieDiv.append(titleTag)
                 movieDiv.append(imgTag)
             }
             if ( object === 'year' )  {
                 objectTag.textContent = numberOfMovies.year
+                objectTag.className = 'Year'
                 movieDiv.append(objectTag)
             }
             if ( object === 'rating' ) {
                 ratingTag.textContent = numberOfMovies.rating
+                ratingTag.className = 'Rating'
                 movieDiv.append(ratingTag)
             }
-
+            if ( object === 'summary') {
+                synopsisTag.textContent = numberOfMovies.summary
+                synopsisTag.className = 'Synopsis'
+                movieDiv.append(synopsisTag)
+            }
 
         }
         allMovies.append(movieDiv)
