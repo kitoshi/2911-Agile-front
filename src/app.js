@@ -21,6 +21,7 @@ function displayAllMovies(listOfMovies){
         const voteTag = document.createElement('p');
         const divTagStyle = document.createElement('div');
         const buttonDiv = document.createElement('div');
+        const videoTag = document.createElement('iframe')
         buttonUp.className = 'Up'
         buttonDown.className = 'Down'
         buttonUp.innerHTML = `<i class="fa fa-thumbs-up">`
@@ -57,6 +58,10 @@ function displayAllMovies(listOfMovies){
                 synopsisTag.className = 'Synopsis'
                 divTagStyle.append(synopsisTag)
             }
+            // if (object === 'trailer') {
+            //     videoTag.src = 'https://www.youtube.com/embed/O2Y3FFFIvRI'
+            //     divTagStyle.append(videoTag)
+            // }
             if ( object === 'votes' ) {
                 voteTag.textContent = 'Votes: ' + numberOfMovies.votes
                 voteTag.className = 'Votes'
@@ -76,11 +81,11 @@ function displayAllMovies(listOfMovies){
 
 allMovies.addEventListener('click', (evt) => {
     if ( evt.target.className === 'Up' ){
-        const movieID = evt.target.parentElement.id
+        const movieID = evt.target.parentElement.parentElement.id
          fetchUpVote(movieID)
     }
     if ( evt.target.className === 'Down' ) {
-        const movieID = evt.target.parentElement.id
+        const movieID = evt.target.parentElement.parentElement.id
         console.log('hello')
         fetchDownVote(movieID)
     }
