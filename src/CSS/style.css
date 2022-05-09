@@ -1,14 +1,16 @@
 body {
-    margin: 0%;
-    padding: 0%;
-    background: radial-gradient(circle,white,red);
-    height: 100vh;
+  margin: 0%;
+  padding: 0%;
+  background: radial-gradient(circle, white, red);
+  height: 100vh;
 }
-h3{
+
+h3 {
   text-align: center;
   font-family: 'Lato', sans-serif;
 }
-h1{
+
+h1 {
   position: relative;
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -16,32 +18,33 @@ h1{
   width: 500px;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
 
-.container{
-    display: flex;
-    justify-content: center;
-    
-}
 main {
-    display: flex;
-    flex-direction: column;
-    
+  display: flex;
+  flex-direction: column;
 }
+
 div#0 {
-    display:flex;
+  display: flex;
 }
+
 p {
-    width: 100%;
-    justify-content: center;
-    font-family: 'Lato', serif;
+  width: 100%;
+  justify-content: center;
+  font-family: 'Lato', serif;
 }
+
 .Movies {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   /* flex-wrap: wrap; */
-  transition: box-shadow .2s;
+  transition: box-shadow 0.2s;
   width: 500px;
   /* height: 500px; */
   margin: 50px;
@@ -49,10 +52,10 @@ p {
   border: 1px solid #ccc;
   background: #fdfd96;
   float: left;
-  transition: box-shadow .2s;
+  transition: box-shadow 0.2s;
 }
+
 .Movies div {
-  
   padding: 5%;
   /* height: 500px; */
   margin: 50px;
@@ -60,68 +63,73 @@ p {
   border: 1px solid #ccc;
   background: #fff;
   float: left;
-  
 }
+
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .Movies:hover {
-  box-shadow: 0 0 15px rgba(33,33,33,.2); 
+  box-shadow: 0 0 15px rgba(33, 33, 33, 0.2);
 }
-#logo{
-    max-height: 300px;
-    max-width: 774.3px;
+
+#logo {
+  max-height: 300px;
+  max-width: 774.3px;
 }
-#display_movie button{
+
+#display_movie button {
   height: 3px;
   width: 3px;
 }
 
 footer {
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items:flex-end;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 
-
-  
-  footer p {
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--grey);
-    align-self: center;
-  }
+footer p {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--grey);
+  align-self: center;
+}
 
 /*Front Page CSS stuffs*/
-#Image{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+#Image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.frontContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+
+.frontContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
+
 .frontpagelogo {
-    height: 300px;
-    width: 774px;
+  height: 300px;
+  width: 774px;
 }
+
 #buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
 }
+
 .mainbutton {
   align-items: center;
   background-color: #ffdfd3;
@@ -149,7 +157,7 @@ footer {
 .mainbutton:after {
   background-color: #111;
   border-radius: 8px;
-  content: "";
+  content: '';
   display: block;
   height: 48px;
   left: 0;
@@ -157,7 +165,7 @@ footer {
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
@@ -176,9 +184,8 @@ footer {
 
 img {
   display: block;
-  max-width:589px;
-  max-height:300px;
+  max-width: 589px;
+  max-height: 300px;
   width: auto;
   height: auto;
 }
-

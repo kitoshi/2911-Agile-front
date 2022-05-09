@@ -11,7 +11,10 @@ function movieTemplate(movie) {
   const template = `
     <div class = "Movies" id= ${movie._id}>
       <h1 class = "Titles">${movie.title}</h1>
-      <img class = "Images" src = 'img/${movie.title.replace(/[^a-zA-Z0-9 ]/g, '')}.jpg'></img>
+      <img class = "Images" src = 'img/${movie.title.replace(
+        /[^a-zA-Z0-9 ]/g,
+        ''
+      )}.jpg'></img>
       <div>
           <p class = "Year">Year: ${movie.year}</p>
           <p class = "Votes">Votes: ${movie.votes}</p>
@@ -33,17 +36,17 @@ function movieTemplate(movie) {
 function displayAllMovies(listofMovies) {
   const container = document.querySelector('#display_movies')
   for (let movie of listofMovies) {
-    container.insertAdjacentHTML("afterbegin", movieTemplate(movie))
+    container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
   }
 }
 
 allMovies.addEventListener('click', (evt) => {
-  if (evt.target.className === 'Up'){
+  if (evt.target.className === 'Up') {
     evt.preventDefault()
     const movieID = evt.target.parentElement.parentElement.id
     fetchUpVote(movieID)
   }
-  if (evt.target.className === "fa fa-thumbs-up"){
+  if (evt.target.className === 'fa fa-thumbs-up') {
     evt.preventDefault()
     const movieID = evt.target.parentElement.parentElement.parentElement.id
     fetchUpVote(movieID)
@@ -53,7 +56,7 @@ allMovies.addEventListener('click', (evt) => {
     const movieID = evt.target.parentElement.parentElement.id
     fetchDownVote(movieID)
   }
-  if (evt.target.className === "fa fa-thumbs-down"){
+  if (evt.target.className === 'fa fa-thumbs-down') {
     evt.preventDefault()
     const movieID = evt.target.parentElement.parentElement.parentElement.id
     fetchDownVote(movieID)
@@ -62,14 +65,13 @@ allMovies.addEventListener('click', (evt) => {
 
 async function fetchUpVote(movieID) {
   let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
-  console.log('start fetch')
 
   const response = await fetch(URL, {
     method: 'PUT',
     body: JSON.stringify({ _id: movieID }),
     headers: { 'Content-Type': 'application/json' }
   })
-  console.log('finish fetch')
+
   return response
 }
 
