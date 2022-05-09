@@ -1,12 +1,21 @@
 body {
     margin: 0%;
     padding: 0%;
-    background: linear-gradient(#ff6961,red);
+    background: radial-gradient(circle,white,red);
     height: 100vh;
 }
-h1{
+h3{
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
+h1{
+  position: relative;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  align-self: flex-start;
+  width: 500px;
+}
+
 
 .container{
     display: flex;
@@ -24,19 +33,50 @@ div#0 {
 p {
     width: 100%;
     justify-content: center;
+    font-family: 'Lato', serif;
 }
-#display_movies {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+.Movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  transition: box-shadow .2s;
+  width: 500px;
+  /* height: 500px; */
+  margin: 50px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fdfd96;
+  float: left;
+  transition: box-shadow .2s;
 }
-#display_movies div{
-  background-color: #ffdeda;
+.Movies div {
+  
+  padding: 5%;
+  /* height: 500px; */
+  margin: 50px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  
 }
-
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Movies:hover {
+  box-shadow: 0 0 15px rgba(33,33,33,.2); 
+}
 #logo{
     max-height: 300px;
     max-width: 774.3px;
+}
+#display_movie button{
+  height: 3px;
+  width: 3px;
 }
 
 footer {
@@ -48,7 +88,6 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
-    position: fixed;
   }
 
 
@@ -137,8 +176,9 @@ footer {
 
 img {
   display: block;
-  max-width:123px;
+  max-width:589px;
   max-height:300px;
   width: auto;
   height: auto;
 }
+
