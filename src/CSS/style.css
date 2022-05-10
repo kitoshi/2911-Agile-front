@@ -50,7 +50,7 @@ p {
   margin: 50px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  background: #fdfd96;
+  background: #fff44f;
   float: left;
   transition: box-shadow 0.2s;
 }
@@ -110,7 +110,7 @@ footer p {
 /* Dropdown Button */
 .dropbtn {
   align-items: center;
-  background-color: #fdfd96;
+  background-color: #fff44f;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -227,7 +227,7 @@ footer p {
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #ffdeda;}
+.dropdown:hover .dropbtn {background-color: #fdfd96;}
 
 img {
   display: block;
