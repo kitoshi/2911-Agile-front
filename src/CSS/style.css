@@ -64,7 +64,10 @@ p {
   background: #fff;
   float: left;
 }
-
+.options{
+  display: flex;
+  justify-content: space-around;
+}
 section {
   display: flex;
   flex-direction: column;
@@ -107,7 +110,7 @@ footer p {
 /* Dropdown Button */
 .dropbtn {
   align-items: center;
-  background-color: #ffdfd3;
+  background-color: #fdfd96;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -224,7 +227,7 @@ footer p {
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: #ffdeda;}
 
 img {
   display: block;
