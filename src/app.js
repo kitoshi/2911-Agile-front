@@ -85,6 +85,96 @@ async function fetchDownVote(movieID) {
   return response
 }
 
+const dropRatings = document.getElementById("dropRatings")
+dropRatings.addEventListener('click', (async (evt) =>{
+  if (evt.target.textContent === 'PG') {
+    const container = document.querySelector('#display_movies')
+    container.innerHTML=""
+    const listOfMovies = await makeFetchtoBackEndToGetData()
+    for (let movie of listOfMovies) {
+        if (movie.rating === 'PG'){
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+    }
+  }
+  }
+  if (evt.target.textContent === 'PG-13') {
+    const container = document.querySelector('#display_movies')
+    container.innerHTML=""
+    const listOfMovies = await makeFetchtoBackEndToGetData()
+    for (let movie of listOfMovies) {
+        if (movie.rating === 'PG-13'){
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+    }
+  }
+  }
+  if (evt.target.textContent === 'R') {
+    const container = document.querySelector('#display_movies')
+    container.innerHTML=""
+    const listOfMovies = await makeFetchtoBackEndToGetData()
+    for (let movie of listOfMovies) {
+        if (movie.rating === 'R'){
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+    }
+  }
+  }
+  if (evt.target.textContent === 'Remove Filter') {
+    const container = document.querySelector('#display_movies')
+    container.innerHTML=""
+    const listOfMovies = await makeFetchtoBackEndToGetData()
+    for (let movie of listOfMovies) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+    }
+  
+  }
+}))
+
+const dropYear = document.getElementById("dropYear")
+dropYear.addEventListener('click', (async (evt) =>{
+  if (evt.target.textContent === 'Before 1990') {
+    const container = document.querySelector('#display_movies')
+    container.innerHTML=""
+    const listOfMovies = await makeFetchtoBackEndToGetData()
+    for (let movie of listOfMovies) {
+        if (parseInt(movie.year) < 1990){
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+    }}}
+    if (evt.target.textContent === '1990-2000') {
+      const container = document.querySelector('#display_movies')
+      container.innerHTML=""
+      const listOfMovies = await makeFetchtoBackEndToGetData()
+      for (let movie of listOfMovies) {
+    if (parseInt(movie.year) >= 1990 && parseInt(movie.year) <= 2000){
+      container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+}}}
+if (evt.target.textContent === '2000-2010') {
+  const container = document.querySelector('#display_movies')
+  container.innerHTML=""
+  const listOfMovies = await makeFetchtoBackEndToGetData()
+  for (let movie of listOfMovies) {
+if (parseInt(movie.year) >= 2000 && parseInt(movie.year) <= 2010){
+  container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+}}}
+if (evt.target.textContent === '2010-2020') {
+  const container = document.querySelector('#display_movies')
+  container.innerHTML=""
+  const listOfMovies = await makeFetchtoBackEndToGetData()
+  for (let movie of listOfMovies) {
+if (parseInt(movie.year) >= 2010 && parseInt(movie.year) <= 2020){
+  container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+}}}
+if (evt.target.textContent === '2020+') {
+  const container = document.querySelector('#display_movies')
+  container.innerHTML=""
+  const listOfMovies = await makeFetchtoBackEndToGetData()
+  for (let movie of listOfMovies) {
+if (parseInt(movie.year) >= 2020){
+  container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+}}
+  }
+  
+
+}))
+
 async function main() {
   const listOfMovies = await makeFetchtoBackEndToGetData()
   await displayAllMovies(listOfMovies)
