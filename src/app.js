@@ -100,7 +100,10 @@ dropRatings.addEventListener('click', async (evt) => {
     container.innerHTML = ''
     const listOfMovies = JSON.parse(localStorage.getItem('movielist'))
     for (let movie of listOfMovies) {
-      if (movie.rating === evt.target.textContent) {
+      if (
+        movie.rating === evt.target.textContent ||
+        evt.target.textContent === 'Remove Filter'
+      ) {
         container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
       }
     }
