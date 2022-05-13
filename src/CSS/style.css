@@ -5,6 +5,16 @@ body {
   height: 100vh;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: solid 5px black;
+  margin-bottom: 15px;
+}
+
 h3 {
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -67,6 +77,7 @@ p {
 .options {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 section {
   display: flex;
@@ -189,7 +200,7 @@ footer p {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-} 
+}
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
@@ -242,4 +253,9 @@ img {
   max-height: 300px;
   width: auto;
   height: auto;
+}
+
+.toph1 {
+  align-self: center;
+  margin-bottom: -50px;
 }
