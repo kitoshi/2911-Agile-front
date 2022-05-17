@@ -70,12 +70,20 @@ function userVoteHandler() {
     console.log(document.querySelector('popup'))
     destroyPopup()
   }, 20000)
+  enableButtons()
   function disableButtons() {
     const buttons = document.querySelectorAll('button')
     for (const item of buttons) {
       item.disabled = true
     }
   }
+  function enableButtons() {
+    const buttons = document.querySelectorAll('button')
+    for (const item of buttons) {
+      item.disabled = false
+    }
+  }
+
   function destroyPopup() {
     const popupHTML = document.querySelector('iframe')
     const popupContainer = document.querySelector('.popup')
