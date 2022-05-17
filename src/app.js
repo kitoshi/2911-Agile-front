@@ -51,6 +51,29 @@ function displayAllMovies(listofMovies) {
     container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
   }
 }
+function disableButtons() {
+  const buttons = document.querySelectorAll('button')
+  for (const item of buttons) {
+    item.disabled = true
+  }
+}
+function enableButtons() {
+  const buttons = document.querySelectorAll('button')
+  for (const item of buttons) {
+    item.disabled = false
+  }
+}
+
+function destroyPopup() {
+  const popupHTML = document.querySelectorAll('iframe')
+  const popupContainer = document.querySelectorAll('.popup')
+  for (const item of popupContainer) {
+    item.style.display = 'none'
+  }
+  for (const item of popupHTML) {
+    item.style.display = 'none'
+  }
+}
 
 function popUpTemplate() {
   const listOfAds = ['1Q39yGLPkMY', 'Bmu_TVzRRms', 'BfsNfFoA0J0']
@@ -59,7 +82,7 @@ function popUpTemplate() {
       <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/${
         listOfAds[Math.round(Math.random(0, listOfAds.length))]
       }?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <div class="skip-popup">(X) Close Ad</div>
+      <button class="skip-popup" onclick="destroyPopup()">(X) Close Ad</button>
     </div>
   `
   return template
@@ -69,30 +92,9 @@ function userVoteHandler() {
   document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
   disableButtons()
   setTimeout(() => {
-    console.log('timer running')
-    console.log(document.querySelector('popup'))
     destroyPopup()
-  }, 20000)
+  }, 200000)
   enableButtons()
-  function disableButtons() {
-    const buttons = document.querySelectorAll('button')
-    for (const item of buttons) {
-      item.disabled = true
-    }
-  }
-  function enableButtons() {
-    const buttons = document.querySelectorAll('button')
-    for (const item of buttons) {
-      item.disabled = false
-    }
-  }
-
-  function destroyPopup() {
-    const popupHTML = document.querySelector('iframe')
-    const popupContainer = document.querySelector('.popup')
-    popupHTML.style.display = 'none'
-    popupContainer.style.display = 'none'
-  }
 }
 
 allMovies.addEventListener('click', (evt) => {
