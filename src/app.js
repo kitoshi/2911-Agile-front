@@ -64,12 +64,18 @@ function popUpTemplate() {
 
 function userVoteHandler() {
   document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
-
+  disableButtons()
   setTimeout(() => {
     console.log('timer running')
     console.log(document.querySelector('popup'))
     destroyPopup()
   }, 20000)
+  function disableButtons() {
+    const buttons = document.querySelectorAll('button')
+    for (const item of buttons) {
+      item.disabled = true
+    }
+  }
   function destroyPopup() {
     const popupHTML = document.querySelector('iframe')
     const popupContainer = document.querySelector('.popup')
