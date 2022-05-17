@@ -90,7 +90,6 @@ function userVoteHandler() {
     popupHTML.style.display = 'none'
     popupContainer.style.display = 'none'
   }
-  console.log()
 }
 
 allMovies.addEventListener('click', (evt) => {
