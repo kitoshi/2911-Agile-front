@@ -82,7 +82,7 @@ function popUpTemplate() {
       <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/${
         listOfAds[Math.round(Math.random(0, listOfAds.length))]
       }?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <button class="skip-popup" onclick="destroyPopup()">(X) Close Ad</button>
+      <button class="skip-popup" onclick="destroyPopup()" disabled>(X) Close Ad</button>
     </div>
   `
   return template
@@ -92,9 +92,12 @@ function userVoteHandler() {
   document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
   disableButtons()
   setTimeout(() => {
+    console.log('enabled')
+    enableButtons()
+  }, 5000)
+  setTimeout(() => {
     destroyPopup()
   }, 200000)
-  enableButtons()
 }
 
 allMovies.addEventListener('click', (evt) => {
