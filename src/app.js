@@ -68,10 +68,7 @@ function destroyPopup() {
   const popupHTML = document.querySelectorAll('iframe')
   const popupContainer = document.querySelectorAll('.popup')
   for (const item of popupContainer) {
-    item.style.display = 'none'
-  }
-  for (const item of popupHTML) {
-    item.style.display = 'none'
+    item.remove()
   }
 }
 
