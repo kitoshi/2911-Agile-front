@@ -52,11 +52,9 @@ function displayAllMovies(listofMovies) {
   }
 }
 
-let userVotes = 3
-
 function popUpTemplate() {
   const template = `
-    <div class="popup">
+    <div class="popup" id="popup-container">
       <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/Bmu_TVzRRms?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="skip-popup">(X) Close Ad</div>
     </div>
@@ -64,49 +62,35 @@ function popUpTemplate() {
   return template
 }
 
-function userVoteHandler(userVotes) {
-  if (userVotes <= 0) {
-    userVotes = 3
-    document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
-    console.log(userVotes)
-  } else {
-    document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
+function userVoteHandler() {
+  document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
 
-    setTimeout(() => {
-      console.log('timer running')
-      console.log(document.querySelector('popup'))
-      destroyPopup()
-    }, 20000)
-    function destroyPopup() {
-      const popupHTML = document.querySelector('iframe')
-      popupHTML.style.display = 'none'
-    }
-    /* const popupHTML = document.querySelector('popup')
-    popupHTML.closePopUp('click', (evt) => {
-      evt.preventDefault()
-      if (evt.target.className === 'popup') {
-        popupHTML.remove()
-        console.log('close popup')
-      } else {
-        console.log('nothing here')
-      } */
-
-    console.log(userVotes)
+  setTimeout(() => {
+    console.log('timer running')
+    console.log(document.querySelector('popup'))
+    destroyPopup()
+  }, 20000)
+  function destroyPopup() {
+    const popupHTML = document.querySelector('iframe')
+    const popupContainer = document.querySelector('.popup')
+    popupHTML.style.display = 'none'
+    popupContainer.style.display = 'none'
   }
+  console.log()
 }
 
 allMovies.addEventListener('click', (evt) => {
   evt.preventDefault()
   console.log('button press')
   if (evt.target.className === 'Up' || evt.target.className === 'Down') {
-    userVoteHandler(userVotes)
+    userVoteHandler()
     const movieID = evt.target.parentElement.parentElement.id
     fetchUpVote(movieID)
   } else if (
     evt.target.className === 'fa fa-thumbs-up' ||
     evt.target.className === 'fa fa-thumbs-down'
   ) {
-    userVoteHandler(userVotes)
+    userVoteHandler()
     const movieID = evt.target.parentElement.parentElement.parentElement.id
     fetchUpVote(movieID)
   }
