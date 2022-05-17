@@ -53,9 +53,12 @@ function displayAllMovies(listofMovies) {
 }
 
 function popUpTemplate() {
+  const listOfAds = ['1Q39yGLPkMY', 'Bmu_TVzRRms', 'BfsNfFoA0J0']
   const template = `
     <div class="popup" id="popup-container">
-      <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/Bmu_TVzRRms?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/${
+        listOfAds[Math.round(Math.random(0, listOfAds.length))]
+      }?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="skip-popup">(X) Close Ad</div>
     </div>
   `
