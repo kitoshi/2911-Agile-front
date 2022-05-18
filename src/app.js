@@ -21,10 +21,10 @@ function movieTemplate(movie) {
           <p class = "Summary">Summary: ${movie.summary}</p>
       </div>
       <div>   
-              <button class="Up">
+              <button class="Up" onclick="handleAllMovies(event)">
                   <i class="fa fa-thumbs-up" id="Up"></i>
               </button>
-              <button class="Down">
+              <button class="Down" onclick="handleAllMovies(event)">
                   <i class="fa fa-thumbs-down"></i>
               </button>
     </div>
@@ -51,6 +51,7 @@ function displayAllMovies(listofMovies) {
     container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
   }
 }
+// popup stuff
 function disableButtons() {
   const buttons = document.querySelectorAll('button')
   for (const item of buttons) {
@@ -65,7 +66,6 @@ function enableButtons() {
 }
 
 function destroyPopup() {
-  const popupHTML = document.querySelectorAll('iframe')
   const popupContainer = document.querySelectorAll('.popup')
   for (const item of popupContainer) {
     item.remove()
@@ -97,22 +97,22 @@ function userVoteHandler() {
   }, 200000)
 }
 
-allMovies.addEventListener('click', (evt) => {
-  evt.preventDefault()
+function handleAllMovies(event) {
+  event.preventDefault()
   console.log('button press')
-  if (evt.target.className === 'Up' || evt.target.className === 'Down') {
+  if (event.target.className === 'Up' || event.target.className === 'Down') {
     userVoteHandler()
-    const movieID = evt.target.parentElement.parentElement.id
+    const movieID = event.target.parentElement.parentElement.id
     fetchUpVote(movieID)
   } else if (
-    evt.target.className === 'fa fa-thumbs-up' ||
-    evt.target.className === 'fa fa-thumbs-down'
+    event.target.className === 'fa fa-thumbs-up' ||
+    event.target.className === 'fa fa-thumbs-down'
   ) {
     userVoteHandler()
-    const movieID = evt.target.parentElement.parentElement.parentElement.id
+    const movieID = event.target.parentElement.parentElement.parentElement.id
     fetchUpVote(movieID)
   }
-})
+}
 
 async function fetchUpVote(movieID) {
   let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
@@ -122,7 +122,6 @@ async function fetchUpVote(movieID) {
     body: JSON.stringify({ _id: movieID }),
     headers: { 'Content-Type': 'application/json' }
   })
-
   return response
 }
 
