@@ -190,6 +190,9 @@ footer p {
 
 .dropdown-button {
   width: 100%;
+  background-color: white;
+  height: auto;
+  font-size: 16px;
 }
 
 .extra-content-ratings {
