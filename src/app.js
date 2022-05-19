@@ -1,3 +1,5 @@
+let votes = 3
+
 async function makeFetchtoBackEndToGetData() {
   const response = await fetch('https://agile-2199.uw.r.appspot.com/api')
   const json = await response.json()
@@ -85,16 +87,46 @@ function popUpTemplate() {
   return template
 }
 
+function alertTemplate() {
+  console.log('broken')
+  const template = `
+    <div class="alert">
+     <p>${votes} remaining</p>
+    </div>
+  `
+  return template
+}
+
+function destroyAlert() {
+  const alertContainer = document.querySelectorAll('.alert')
+  for (const item of alertContainer) {
+    item.remove()
+  }
+}
+
 function userVoteHandler() {
-  document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
-  disableButtons()
-  setTimeout(() => {
-    console.log('enabled')
-    enableButtons()
-  }, 5000)
-  setTimeout(() => {
-    destroyPopup()
-  }, 200000)
+  votes = votes - 1
+  if (votes > 0) {
+    document
+      .querySelector('header')
+      .insertAdjacentHTML('afterend', alertTemplate())
+    setTimeout(() => {
+      console.log('alerting')
+    }, 5000)
+    destroyAlert()
+  } else {
+    document.querySelector('h1').insertAdjacentHTML('afterend', popUpTemplate())
+    disableButtons()
+    setTimeout(() => {
+      console.log('enabled')
+      enableButtons()
+    }, 5000)
+    setTimeout(() => {
+      destroyPopup()
+    }, 200000)
+    votes = 3
+    return votes
+  }
 }
 
 function handleAllMovies(event) {
