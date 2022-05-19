@@ -73,7 +73,7 @@ function destroyPopup() {
 }
 
 function popUpTemplate() {
-  const listOfAds = ['BzCbXm2w22E', 'bsgnKjgUd6k', 'M853v2oFQRs', 'mEh5GiQ4_Yk']
+  const listOfAds = ['BzCbXm2w22E', 'bsgnKjgUd6k', 'M853v2oFQRs']
   const template = `
     <div class="popup" id="popup-container">
       <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/${
