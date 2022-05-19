@@ -73,17 +73,11 @@ function destroyPopup() {
 }
 
 function popUpTemplate() {
-  const listOfAds = [
-    '1Q39yGLPkMY',
-    'Bmu_TVzRRms',
-    'BfsNfFoA0J0',
-    'BzCbXm2w22E',
-    'bsgnKjgUd6k'
-  ]
+  const listOfAds = ['BzCbXm2w22E', 'bsgnKjgUd6k', 'M853v2oFQRs', 'mEh5GiQ4_Yk']
   const template = `
     <div class="popup" id="popup-container">
       <iframe width="100%" height="100%" display="inline" src="https://www.youtube-nocookie.com/embed/${
-        listOfAds[Math.round(Math.random(0, listOfAds.length))]
+        listOfAds[Math.floor(Math.random() * listOfAds.length - 1)]
       }?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <button class="skip-popup" onclick="destroyPopup()" disabled>(X) Close Ad</button>
     </div>
