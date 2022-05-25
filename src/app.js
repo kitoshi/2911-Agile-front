@@ -115,7 +115,7 @@ function handleAllMovies(event) {
 }
 
 async function fetchUpVote(movieID) {
-  let URL = 'https://agile-2199.uw.r.appspot.com/api/' + movieID + '/votes'
+  let URL = `'https://agile-2199.uw.r.appspot.com/api/${movieID}/votes'`
 
   const response = await fetch(URL, {
     method: 'PUT',
@@ -135,8 +135,11 @@ async function fetchDownVote(movieID) {
   return response
 }
 
+var ratingsGlobal = ""
+var jsonList = []
+
 const dropRatings = document.getElementById('dropRatings')
-dropRatings.addEventListener('click', async (evt) => {
+dropRatings.addEventListener('click', (evt) => {
   const container = document.querySelector('#display_movies')
   if (
     evt.target.textContent === 'PG' ||
@@ -146,11 +149,15 @@ dropRatings.addEventListener('click', async (evt) => {
   ) {
     container.innerHTML = ''
     const listOfMovies = JSON.parse(localStorage.getItem('movielist'))
+    jsonList = []
     for (let movie of listOfMovies) {
       if (
         movie.rating === evt.target.textContent ||
         evt.target.textContent === 'Remove Filter'
       ) {
+        ratingsGlobal = evt.target.textContent
+        jsonList.push(JSONTemplate(movie))
+        console.log(JSON.parse(JSON.stringify(jsonList)))
         container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
       }
     }
@@ -162,6 +169,37 @@ dropYear.addEventListener('click', async (evt) => {
   const container = document.querySelector('#display_movies')
   const listOfMovies = JSON.parse(localStorage.getItem('movielist'))
   container.innerHTML = ''
+  if (ratingsGlobal === 'PG') {
+    for (let movie of JSON.parse(jsonList)) {
+      if (evt.target.textContent === 'Before 1990') {
+        if (parseInt(movie.year) < 1990) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+        }
+      }
+      if (evt.target.textContent === '1990-2000') {
+        if (parseInt(movie.year) >= 1990 && parseInt(movie.year) <= 2000) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+        }
+      }
+      if (evt.target.textContent === '2000-2010') {
+        if (parseInt(movie.year) >= 2000 && parseInt(movie.year) <= 2010) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+        }
+      }
+      if (evt.target.textContent === '2010-2020') {
+        if (parseInt(movie.year) >= 2010 && parseInt(movie.year) <= 2020) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+        }
+      }
+      if (evt.target.textContent === '2020+') {
+        if (parseInt(movie.year) >= 2020) {
+          container.insertAdjacentHTML('afterbegin', movieTemplate(movie))
+        }
+      }
+    }
+    
+  }
+  else
   for (let movie of listOfMovies) {
     if (evt.target.textContent === 'Before 1990') {
       if (parseInt(movie.year) < 1990) {
@@ -190,6 +228,11 @@ dropYear.addEventListener('click', async (evt) => {
     }
   }
 })
+
+function JSONTemplate(movie) {
+  const template = `{_id: ${movie._id}, title: ${movie.title}, votes: ${movie.votes}, rating: ${movie.rating}, year: ${movie.year}, trailer: ${movie.trailer}, summary: ${movie.summary}}`
+  return template
+}
 
 async function main() {
   const movieListString = await makeFetchtoBackEndToGetData()
