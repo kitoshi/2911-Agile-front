@@ -286,3 +286,13 @@ img {
   z-index: 2;
   background-color: red;
 }
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background-color: blue;
+  z-index: 2;
+}
