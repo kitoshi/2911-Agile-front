@@ -88,7 +88,7 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-1. npm start to run on https://localhost:3000(default)
+1. open home.html to view the web page.
 2. For production, frontend can be hosted on [heroku](https://dashboard.heroku.com/). We used their [SDK](https://devcenter.heroku.com/articles/heroku-cli) to port to the cloud service by command line in the code editor.
 
 <!-- ROADMAP -->
