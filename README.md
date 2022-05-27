@@ -5,7 +5,7 @@
   <h3 align="center">Sofa and Chill Frontend</h3>
 
   <p align="center">
-    Front-end for CRUD and movie voting front-end to show top movie picks voted by the community
+    Front-end for CRUD movie voting web page to show top movie picks voted by the community.
     <br />
     <br />
     <a href="https://sofachill.herokuapp.com/">View Demo</a>
